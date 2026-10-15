@@ -200,6 +200,8 @@ section{padding:64px 0}
 .person .ico svg{width:28px;height:28px}
 .person h3{margin-bottom:6px}
 .person p{color:var(--ink-2)}
+.person{display:flex;flex-direction:column}
+.person .see{margin-top:auto;align-self:flex-start;background:none;border:0;padding:8px 0 0;font:600 .98rem "IBM Plex Sans",sans-serif;color:var(--accent-ink);cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-style:dashed;min-height:44px}
 .invite{margin-top:22px;display:flex;align-items:center;gap:12px;font-weight:500}
 .invite svg{width:26px;height:26px;color:var(--wa);flex:none}
 
@@ -221,6 +223,10 @@ section{padding:64px 0}
 .pair .phone{width:min(220px,42vw)}
 .pair .phone:nth-child(2){margin-top:44px}
 .solo .phone{width:min(260px,70vw);margin:0 auto}
+.duo{display:grid;grid-template-columns:1fr 30%;gap:14px;align-items:end;max-width:600px;margin:0 auto;width:100%}
+.duo>*{min-width:0}
+.duo .phone{padding:5px;border-radius:22px}
+.duo .phone img{border-radius:17px}
 @media (min-width:880px){
   .feat{grid-template-columns:1fr 1fr;gap:56px}
   .feat:nth-child(even) .txt{order:2}
@@ -344,7 +350,7 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
       <ol class="steps">
         <li><h3>O peão lança no celular</h3><p>Toca em “O que aconteceu?” e escolhe: pesagem, trato, vacina, nascimento, ocorrência. Dá até para falar em vez de digitar.</p></li>
         <li><h3>O app faz as contas</h3><p>Baixa o estoque, calcula ganho de peso, custo, carência e quanto vale o lote.</p></li>
-        <li><h3>O gestor vê o que fazer hoje</h3><p>Uma lista só com o que precisa de atenção: vacina para reforçar, estoque acabando, lote no ponto de venda, conta vencendo.</p></li>
+        <li><h3>O gestor vê o que fazer hoje</h3><p>Uma lista só com o que precisa de atenção: vacina para reforçar, estoque acabando, lote no ponto de venda, conta vencendo e os pedidos e recados da equipe.</p></li>
       </ol>
     </div>
     <div class="phone"><img src="cel-02-o-que-aconteceu.webp" width="585" height="1266" loading="lazy" alt="Tela O que aconteceu? com botões grandes: Falar, Pesagem, Sanidade, Ocorrência, Trato, Pasto, Máquina, Rebanho, Monta, Estoque e Financeiro" data-zoom></div>
@@ -389,10 +395,12 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
     <div class="people">
       <div class="sheet person">
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-6h4v6"/></svg></div>
-        <h3>Gestor</h3><p>Vê a fazenda inteira, aprova quem entra, vende animais e acompanha as contas.</p></div>
+        <h3>Gestor</h3><p>Vê a fazenda inteira, aprova quem entra, vende animais, acompanha as contas e deixa tarefas e recados para a equipe.</p>
+        <button class="see" data-open="pc-09-precisa-recados.webp" data-alt="Lista Precisa de você hoje com os pedidos da equipe">Ver a tela</button></div>
       <div class="sheet person">
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></div>
-        <h3>Colaborador</h3><p>Botões grandes e, se você quiser, só o que é do setor dele (cria, recria ou engorda). Lança e pronto.</p></div>
+        <h3>Colaborador</h3><p>Botões grandes e uma lista do que o gestor pediu para fazer hoje. Lança, marca como feito e manda recado ou pedido de compra direto ao gestor. Se você quiser, ele vê só o setor dele (cria, recria ou engorda).</p>
+        <button class="see" data-open="cel-12-tarefa-do-gestor.webp" data-alt="Tarefa do gestor com o botão Feito no celular do colaborador">Ver a tela</button></div>
       <div class="sheet person">
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.5 19.5a2.1 2.1 0 0 1-3-3L16 6M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg></div>
         <h3>Veterinário</h3><p>Vacinas, tratamentos, carência, diagnóstico de prenhez e histórico de cada animal.</p></div>
@@ -441,13 +449,23 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
       </div>
 
       <div class="feat">
-        <div class="txt"><span class="num">02</span><h3>Hora de vender</h3>
+        <div class="txt"><span class="num">02</span><h3>Recados direto com o gestor</h3>
+          <p>O peão manda recado ou pede o que precisa comprar, como ração de porco ou um arreio novo, e o pedido aparece no Início do gestor.</p>
+          <p style="margin-top:12px">O gestor responde e deixa tarefas com prazo, mesmo de longe ou antes de entrar num avião. Quem recebeu marca como feito e o gestor fica sabendo.</p></div>
+        <div class="duo">
+          <div class="screen"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img src="pc-08-recados.webp" width="1400" height="719" loading="lazy" alt="Conversa de recados entre o gestor e o colaborador, vista no computador" data-zoom></div>
+          <div class="phone"><img src="cel-11-recado-para-o-gestor.webp" width="585" height="1266" loading="lazy" alt="Colaborador mandando recado e pedido de compra para o gestor pelo celular" data-zoom></div>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="txt"><span class="num">03</span><h3>Hora de vender</h3>
           <p>O app projeta o peso dia a dia e mostra o melhor dia para vender e quanto se ganha a mais por cabeça, já contando a carência.</p></div>
         <div class="solo"><div class="phone"><img src="cel-05-hora-de-vender.webp" width="585" height="1266" loading="lazy" alt="Tela Hora de vender, indicando até quando vale segurar o lote e o ganho por cabeça" data-zoom></div></div>
       </div>
 
       <div class="feat">
-        <div class="txt"><span class="num">03</span><h3>Vacas vazias na mão</h3>
+        <div class="txt"><span class="num">04</span><h3>Vacas vazias na mão</h3>
           <p>Mostra vazias, prenhes, paridas e com bezerro ao pé, vaca por vaca (para quem cadastra a ficha das matrizes). Separe e venda direto da lista, com o total calculado na hora.</p></div>
         <div class="pair">
           <div class="phone"><img src="cel-07-vacas-vazias.webp" width="585" height="1266" loading="lazy" alt="Tela de vacas vazias, prenhes e com bezerro, com contagem por situação" data-zoom></div>
@@ -456,7 +474,7 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
       </div>
 
       <div class="feat">
-        <div class="txt"><span class="num">04</span><h3>Mapa dos pastos</h3>
+        <div class="txt"><span class="num">05</span><h3>Mapa dos pastos</h3>
           <p>Desenhe os pastos sobre a foto de satélite e veja a área de cada um, onde está cada lote e quais estão em descanso.</p></div>
         <!-- TROCAR: quando tiver o print do mapa, substitua todo o bloco "map-ill" abaixo por:
              <div class="screen"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img src="pc-08-mapa.webp" alt="Mapa dos pastos sobre foto de satélite" loading="lazy" data-zoom></div> -->
@@ -486,13 +504,13 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
       </div>
 
       <div class="feat">
-        <div class="txt"><span class="num">05</span><h3>Relatório para o banco</h3>
+        <div class="txt"><span class="num">06</span><h3>Relatório para o banco</h3>
           <p>Um PDF organizado para o crédito rural, com rebanho, entradas e saídas e custo por atividade, sem montar nada à mão.</p></div>
         <div class="paper"><img src="pc-07-relatorio-banco.webp" width="1400" height="1571" loading="lazy" alt="Primeira página do relatório para o banco em PDF, com resumo do rebanho e do financeiro" data-zoom></div>
       </div>
 
       <div class="feat">
-        <div class="txt"><span class="num">06</span><h3>Funciona sem internet</h3>
+        <div class="txt"><span class="num">07</span><h3>Funciona sem internet</h3>
           <p>Lance no pasto. O app guarda no celular e, quando pegar sinal, tudo sobe sozinho.</p>
           <span class="offline-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 2l20 20M8.5 16.4a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5.2-2.8M19 12.9a10 10 0 0 0-2-1.5M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8A15 15 0 0 0 10.7 5M12 20h.01"/></svg>Selo “Sem internet” no topo da tela</span></div>
         <div class="solo"><div class="phone"><img src="cel-10-sem-internet.webp" width="585" height="1266" loading="lazy" alt="Tela Início com o selo Sem internet e a pesagem guardada no celular" data-zoom></div></div>
@@ -548,6 +566,10 @@ dialog.viewer p{color:#EFE5D0;text-align:center;font-size:.9rem;margin-top:8px}
       <details>
         <summary>Já uso planilha. Perco tudo?</summary>
         <div class="ans"><p>Não. Dá para importar sua planilha (Excel ou CSV) e a sessão da balança Tru-Test. Se algo vier errado, dá para desfazer.</p></div>
+      </details>
+      <details>
+        <summary>Dá para falar com a equipe pelo app?</summary>
+        <div class="ans"><p>Dá. Cada pessoa tem uma conversa com o gestor dentro do app: recados, pedidos de compra e tarefas com prazo. Funciona até sem internet e envia quando pegar sinal.</p></div>
       </details>
       <details>
         <summary>Quanto custa?</summary>
