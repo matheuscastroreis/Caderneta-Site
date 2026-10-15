@@ -1,0 +1,26 @@
+SITE DA CADERNETA DA FAZENDA - O QUE TEM NESTA PASTA
+
+index.html ........ a página do site (textos, cores e funções, tudo dentro)
+imagens/ .......... os prints do app (já reduzidos para abrir rápido no celular)
+icon-cf.svg, icon-cf-192.png, icon-cf-512.png ... logo e ícone da aba
+og.png ............ imagem que aparece quando o link é enviado no WhatsApp
+
+ANTES DE PUBLICAR: TROCAR O WHATSAPP
+1. Abra o index.html (no GitHub: clique no arquivo e depois no lápis "Edit").
+2. Procure (Ctrl+F) por: TROQUE AQUI O NÚMERO DO WHATSAPP
+3. Logo abaixo, troque 5500000000000 pelo seu número: 55 + DDD + número, só algarismos.
+   Exemplo: 5566999998888
+4. Salve ("Commit changes").
+O número aparece sozinho nos botões e no rodapé.
+
+QUANDO TIVER O PRINT DO MAPA DOS PASTOS
+1. Salve o print com o nome pc-08-mapa.png (ou .webp) e suba na pasta imagens.
+2. No index.html, procure (Ctrl+F) por: TROCAR: quando tiver o print do mapa
+   e siga a instrução que está ali.
+
+DEPOIMENTOS (quando tiver, com autorização das pessoas)
+Procure por: DEPOIMENTOS (escondido). A instrução está ali.
+
+SE O ENDEREÇO DO SITE NÃO FOR caderneta-site.pages.dev
+Procure por caderneta-site.pages.dev (aparece 2 vezes, no começo do arquivo) e troque pelo endereço certo.
+Isso só afeta a imagem de prévia no WhatsApp.
